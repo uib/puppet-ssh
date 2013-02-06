@@ -1,4 +1,7 @@
 class ssh::params {
+
+  $enable_hostkeys = false
+
   case $::osfamily {
     debian: {
       $server_package_name = 'openssh-server'
