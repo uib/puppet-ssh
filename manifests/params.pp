@@ -1,7 +1,7 @@
 class ssh::params {
 
   $enable_hostkeys = false
-
+  
   case $::osfamily {
     debian: {
       $server_package_name = 'openssh-server'
@@ -18,6 +18,11 @@ class ssh::params {
       $ssh_config = '/etc/ssh/ssh_config'
       $ssh_known_hosts = '/etc/ssh/ssh_known_hosts'
       $service_name = 'sshd'
+    }
+    Darwin: {
+      $sshd_config = '/etc/sshd_config'
+      $ssh_config = '/etc/ssh_config'
+      $ssh_known_hosts = '/etc/ssh_known_hosts'
     }
     default: {
       case $::operatingsystem {
