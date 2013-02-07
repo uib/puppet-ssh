@@ -5,7 +5,7 @@ class ssh::server::config {
       owner   => 'root',
       group   => 'root',
       mode    => '0600',
-      replace => true,
+      replace => false,
       source  => "puppet:///modules/${module_name}/sshd_config",
       require => Class['ssh::server::install'],
       notify  => Class['ssh::server::service'],
@@ -18,7 +18,7 @@ class ssh::server::config {
       owner   => 'root',
       group   => 'wheel',
       mode    => '0644',
-      replace => true,
+      replace => false,
       source  => "puppet:///modules/${module_name}/sshd_config_darwin",
     }
   }
