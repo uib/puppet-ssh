@@ -12,7 +12,7 @@ class ssh::server::config {
     }
   }
 
-  if ($::osfamily != Darwin) {
+  if ($::osfamily == Darwin) {
     file { $ssh::params::sshd_config:
       ensure  => present,
       owner   => 'root',
