@@ -12,10 +12,11 @@ class ssh::client::config {
 
   if ($::osfamily == Darwin) {
     file { $ssh::params::ssh_config:
-      ensure  => present,
-      owner   => 'root',
-      group   => 'wheel',
-      source  => "puppet:///modules/${module_name}/ssh_config_darwin",
+      ensure => present,
+      owner  => 'root',
+      group  => 'wheel',
+      mode   => '0644',
+      source => "puppet:///modules/${module_name}/ssh_config_darwin",
     }
   }
 
